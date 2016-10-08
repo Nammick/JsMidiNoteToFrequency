@@ -1,0 +1,43 @@
+<HTML>
+  <TITLE>Midi Note To Frequency - Nammick</TITLE>
+  <SCRIPT LANGUAGE="JavaScript">
+
+	// verbose
+	/*
+	var midiNoteToFrequency = function(midiNote) 
+	{
+	var tuningFrequency = 440;
+	var tuningNote = 69;
+	return Math.exp ((midiNote-tuningNote) * Math.log(2) / 12) * tuningFrequency;
+	}
+	*/
+	// non-verbose
+	var midiNoteToFrequency = function(midiNote) 
+	{
+	return Math.exp ((midiNote-69) * Math.log(2) / 12) * 440;
+	}
+
+    function ProcessForm ()
+    {
+		alert(midiNoteToFrequency(document.STForm.ST.value));
+    }
+    function ClearForm ()
+    {
+      document.STForm.ST.value = ""
+    }
+
+</SCRIPT>
+</HEAD>
+
+<BODY>
+<Font face="AGaramond,Garamond,Times,Times Roman, Times New Roman">
+<CENTER><H2><FONT size=+2>Nammick - Midi to Freq</FONT></H2></CENTER>
+
+  <FORM name="STForm">
+    Midi Note: <INPUT type=text name=ST value=0><P>
+    <INPUT type=button value="Calculate" onClick="ProcessForm()">
+    <INPUT type=button value="Clear all" onClick="ClearForm()"></center>
+  </FORM>
+</BODY>
+
+</HTML>
